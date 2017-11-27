@@ -8,7 +8,7 @@ Link
 import Home from  './Home'
 import Sobre from  './Sobre'
 import Trabalhos from './Trabalhos'
-import Usuario from './Usuario'
+import Usuarios from './Usuarios'
 
 class App extends Component {
   render() {
@@ -24,14 +24,14 @@ class App extends Component {
             <ul className='nav navbar-nav'>
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/Trabalhos'>Trabalhos</Link></li>
-              <li><Link to='/Usuario'>Usuario</Link></li>
+              <li><Link to='/Usuarios'>Usuario</Link></li>
               <li><Link to='/sobre'>Sobre</Link></li>
             </ul>
           </nav>
           <div className='Container'>
             <Route exact path='/' component={Home} />
             <Route exact path='/Trabalhos' component={Trabalhos} />
-            <Route path='/Usuario' component={Usuario} />
+            <Route path='/Usuarios' component={Usuarios} />
             <Route exact path='/sobre' component={Sobre} />
           </div>
         </div>
