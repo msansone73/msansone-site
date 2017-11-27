@@ -9,6 +9,7 @@ import Home from  './Home'
 import Sobre from  './Sobre'
 import Trabalhos from './Trabalhos'
 import Usuarios from './Usuarios'
+import UsuarioItem from './UsuarioItem'
 
 class App extends Component {
   render() {
@@ -31,7 +32,8 @@ class App extends Component {
           <div className='Container'>
             <Route exact path='/' component={Home} />
             <Route exact path='/Trabalhos' component={Trabalhos} />
-            <Route path='/Usuarios' component={Usuarios} />
+            <Route path='/Usuarios/:id' component={UsuarioItem} />
+            <Route exact path='/Usuarios' component={Usuarios} />
             <Route exact path='/sobre' component={Sobre} />
           </div>
         </div>

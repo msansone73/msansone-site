@@ -1,5 +1,7 @@
 import React from 'react';
-
+import {
+    Link
+    } from 'react-router-dom'
 export default class Usuarios extends React.Component {
 
     constructor(){
@@ -26,7 +28,10 @@ export default class Usuarios extends React.Component {
         <div>
             <div>Usuarios:</div>
             {this.state.items.map(
-                item => {return <div key={item.id}> {item.email}</div>}
+                item => {
+                    return <div key={item.id}> {item.email}
+                    <Link to={'/Usuarios/'+item.id}>  edit</Link> 
+                    </div>}
             )}
         </div>
         )
