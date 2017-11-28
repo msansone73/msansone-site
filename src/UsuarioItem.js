@@ -1,7 +1,4 @@
 import React from 'react'
-import {
-    Link
-    } from 'react-router-dom'
 class UsuarioItem extends React.Component
 {
     constructor(props){
@@ -26,23 +23,24 @@ class UsuarioItem extends React.Component
         });
     }
 
+    componentWillUpdate(){
+        console.log('componentWillUpdate()') 
+    }
     componentDidUpdate(){
-        this.carregaDetalhe()
+       // this.carregaDetalhe()
+       this.carregaDetalhe()
+       
+       console.log('componentDidUpdate()')
     }
     render(){
+        console.log('render()')
         return(
-            <div>
-        <div>
-            <div>Usuario:</div>
-            {this.state.items.email}<br/>
-            {JSON.stringify(this.state.items)}<br/>
-            {JSON.stringify(this.props.match)}<br/>
-            {this.props.match.params.id}
+            <div className='row'>
             
-        </div>
-
-
-        <Link to='/Usuarios'>Voltar</Link>
+            <div>Usuario:</div><br/>
+            <div className= 'col-md-2'>Nome:</div> <div className= 'col-md-10'><input type = "text" value = {this.state.items.nome}/></div>
+            <div className= 'col-md-2'>E-mail:</div> <div className= 'col-md-10'><input type = "text" value = {this.state.items.email}/></div>
+            
         </div>
         )
     } 

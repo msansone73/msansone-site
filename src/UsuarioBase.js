@@ -9,7 +9,6 @@ class UsuarioBase extends Component{
         return (
             <div className='row'>
                 <div className= 'col-md-4'>
-                    <h3>Categorias</h3>
                     <Route  path={this.props.match.url} component={Usuarios}/>
                 </div>
                 <div className='col-md-8'>
