@@ -4,11 +4,12 @@ import {
     } from 'react-router-dom'
 class UsuarioItem extends React.Component
 {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={items:[]}
     }
 
+    
     componentDidMount(){
         let url='http://msansone.com.br:8080/usuarios/'+this.props.match.params.id
         console.log(url)
@@ -30,8 +31,13 @@ class UsuarioItem extends React.Component
             <div>
         <div>
             <div>Usuario:</div>
-            {this.state.items.email}
+            {this.state.items.email}<br/>
+            {JSON.stringify(this.state.items)}<br/>
+            {JSON.stringify(this.props.match)}<br/>
+            {this.props.match.params.id}
+            
         </div>
+
 
         <Link to='/Usuarios'>Voltar</Link>
         </div>
