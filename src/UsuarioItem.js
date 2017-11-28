@@ -3,11 +3,12 @@ class UsuarioItem extends React.Component
 {
     constructor(props){
         super(props)
+        this.carregaDetalhe=this.carregaDetalhe.bind(this)
         this.state={items:[]}
     }
 
-    carregaDetalhe(){
-        let url='http://msansone.com.br:8080/usuarios/'+this.props.match.params.id
+    carregaDetalhe(id){
+        let url='http://msansone.com.br:8080/usuarios/'+id
         console.log(url)
         fetch(url)
         .then ( result => {
@@ -23,15 +24,18 @@ class UsuarioItem extends React.Component
         });
     }
 
-    componentWillUpdate(){
-        console.log('componentWillUpdate()') 
+    ComponentDidMount(){
+        console.log('ComponentDidMount()')
+        var id = this.props.match.params.id
+        this.carregaDetalhe(id) 
     }
-    componentDidUpdate(){
-       // this.carregaDetalhe()
-       this.carregaDetalhe()
-       
-       console.log('componentDidUpdate()')
+
+    componentWillReceiveProps(newProps){
+        console.log('componentWillReceiveProps()')
+        var id = newProps.match.params.id
+        this.carregaDetalhe(id)         
     }
+
     render(){
         console.log('render()')
         return(

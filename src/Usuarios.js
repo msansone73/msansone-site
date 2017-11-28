@@ -29,8 +29,8 @@ export default class Usuarios extends React.Component {
             <div>Usuarios:</div>
             {this.state.items.map(
                 item => {
-                    return <div key={item.id}> {item.email}
-                    <Link to={'/Usuarios/'+item.id}>  edit</Link> 
+                    return <div key={item.id}> 
+                    <Link to={'/Usuarios/'+item.id}>  {item.nome}</Link> 
                     </div>}
             )}
         </div>
