@@ -9,8 +9,7 @@ class UsuarioItem extends React.Component
         this.state={items:[]}
     }
 
-    
-    componentDidMount(){
+    carregaDetalhe(){
         let url='http://msansone.com.br:8080/usuarios/'+this.props.match.params.id
         console.log(url)
         fetch(url)
@@ -25,6 +24,10 @@ class UsuarioItem extends React.Component
             console.log("Deu ruim.")
 
         });
+    }
+
+    componentDidUpdate(){
+        this.carregaDetalhe()
     }
     render(){
         return(
