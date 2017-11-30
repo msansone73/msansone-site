@@ -40,13 +40,17 @@ class UsuarioItem extends React.Component
     }
     salvar(){
         console.log('salvar()')
-        fetch('http://msansone.com.br:8080/usuarios/', {
+        let obj = this.state.items
+        obj.senha="123456"
+        let jobj=JSON.stringify(obj)
+        var id = this.props.match.params.id
+        fetch('http://msansone.com.br:8080/usuarios/'+id, {
             method: 'PUT',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
-        body: JSON.stringify(this.state.items)  
+        body: jobj  
         })
     }
 
@@ -74,6 +78,7 @@ class UsuarioItem extends React.Component
             </div>
             <div className= 'col-md-2'>E-mail:</div> 
             <div className= 'col-md-10'><input  type = "text" 
+                                                value = {this.state.items.email}
                                                 />
             </div><br/>
             <div className= 'col-md-12'><input  type = "button" 
