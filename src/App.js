@@ -16,7 +16,7 @@ class App extends Component {
       <Router>
         <div>
           <nav className='navbar navbar-inverse'>
-
+          
             <ul className='nav navbar-nav'>
               <li className='navbar-brand'>Marcio Sansone</li>
               <li><Link to='/'>Home</Link></li>
