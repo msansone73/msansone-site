@@ -67,24 +67,16 @@ class UsuarioItem extends React.Component {
     render() {
         console.log('render()')
         return (
-            <div className='row'>
-                <div>{JSON.stringify(this.state.items[0])}</div>
+            <div className='form-group'>
 
-                <div>Usuario:</div><br />
-                <div className='col-md-2'>Nome:</div>
-                <div className='col-md-10'><input type="text"
-                    ref="nome"
-                />
-                </div>
-                <div className='col-md-2'>E-mail:</div>
-                <div className='col-md-10'><input type="text"
-                    ref="email"
-                />
-                </div><br />
-                <div className='col-md-12'><input type="button"
-                    value="SALVAR"
-                    onClick={this.salvar} />
-                </div>
+                <h2>USER</h2>
+                <label for="nome">Name</label>
+                <input type="text" class="form-control" id="nome" aria-describedby="Name" placeholder="enter name" ref="nome"/>
+                
+                <label for="nome">E-mail</label>
+                <input type="text" class="form-control" id="email" aria-describedby="Email" placeholder="enter email" ref="email"/>
+                <br />
+                <button type="submit" class="btn btn-primary" onClick={this.salvar} >Submit</button>
             </div>
         )
     }

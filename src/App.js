@@ -6,7 +6,7 @@ Link
 } from 'react-router-dom'
 
 import Home from  './Home'
-import Sobre from  './Sobre'
+import About from  './About'
 import Trabalhos from './Trabalhos'
 import UsuarioBase from './UsuarioBase'
 
@@ -16,23 +16,20 @@ class App extends Component {
       <Router>
         <div>
           <nav className='navbar navbar-inverse'>
-            <div className='container'>
-              <div className='navbar-header'>
-                <a href='/' className='navbar-brand'>MSansone</a>
-              </div>
-            </div>
+
             <ul className='nav navbar-nav'>
+              <li className='navbar-brand'>Marcio Sansone</li>
               <li><Link to='/'>Home</Link></li>
-              <li><Link to='/Trabalhos'>Trabalhos</Link></li>
+              <li><Link to='/Trabalhos'>Works</Link></li>
               <li><Link to='/Usuarios'>Usuario</Link></li>
-              <li><Link to='/sobre'>Sobre</Link></li>
+              <li><Link to='/about'>About</Link></li>
             </ul>
           </nav>
           <div className='Container'>
             <Route exact path='/' component={Home} />
             <Route exact path='/Trabalhos' component={Trabalhos} />
             <Route  path='/Usuarios' component={UsuarioBase} />
-            <Route exact path='/sobre' component={Sobre} />
+            <Route exact path='/about' component={About} />
           </div>
         </div>
      </Router>
