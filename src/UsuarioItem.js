@@ -71,12 +71,12 @@ class UsuarioItem extends React.Component {
 
                 <h2>USER</h2>
                 <label for="nome">Name</label>
-                <input type="text" class="form-control" id="nome" aria-describedby="Name" placeholder="enter name" ref="nome"/>
+                <input type="text" className="form-control" id="nome" aria-describedby="Name" placeholder="enter name" ref="nome"/>
                 
                 <label for="nome">E-mail</label>
-                <input type="text" class="form-control" id="email" aria-describedby="Email" placeholder="enter email" ref="email"/>
+                <input type="text" className="form-control" id="email" aria-describedby="Email" placeholder="enter email" ref="email"/>
                 <br />
-                <button type="submit" class="btn btn-primary" onClick={this.salvar} >Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={this.salvar} >Submit</button>
             </div>
         )
     }
