@@ -1,9 +1,7 @@
 <h1>Site msansone.com.br</h1>
 <br>
 <h2>Tecnology</h2>
-<br>
 <h2>Client</h2>
-<br>
 <ul>
   <li>HTML5</li>
   <li>CSS</li>
