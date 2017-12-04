@@ -67,6 +67,8 @@ class UsuarioItem extends React.Component {
                         'Content-Type': 'application/json',
                 },
                 body: jobj
+            }).then ( function (data){
+                        console.log(JSON.stringify(data))
             })
         }
         // ALTERAR: Entidade existente
