@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 
 class Home extends Component {
     render(){
-        return(
+        console.log("Home state="+JSON.stringify(this.state))
+        return(        
             <h1>Home</h1>
         )
     }

@@ -1,4 +1,6 @@
 import React from 'react'
+import $ from 'jquery'
+
 class UsuarioItem extends React.Component {
     constructor(props) {
         super(props)
@@ -26,6 +28,7 @@ class UsuarioItem extends React.Component {
             .catch(function () {
                 console.log("Deu ruim.")
             });
+            console.log("state="+JSON.stringify(this.state))
     }
 
     ComponentDidMount() {
@@ -45,9 +48,66 @@ class UsuarioItem extends React.Component {
         this.refs.nome.value=""
         this.refs.email.value=""
         this.setState({ items: { "id": "", "email": "", "senha": "", "nome": "" } })
+        console.log("state="+JSON.stringify(this.state))
     }
 
     salvar() {
+        console.log('salvar()')
+        console.log(this.state.items.id)
+        // INSERIR: Entidade nova
+        if (this.state.items.id==="")
+        {
+            console.log("Inserir")
+            console.log("state="+JSON.stringify(this.state))
+            let obj = this.state.items
+            obj.nome=this.refs.nome.value
+            obj.email=this.refs.email.value
+            obj.senha="123456"
+            console.log("state="+JSON.stringify(this.state))
+            let jobj = JSON.stringify(obj)
+            let saida=""
+
+
+            $.ajax({
+                'type': "POST",
+                'url': "http://msansone.com.br:8080/usuarios",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                success: function (msg) {
+                    console.log(msg)
+                    saida=msg
+                },
+                data: jobj
+            });
+
+            this.setState({items:saida})
+            console.log("state="+JSON.stringify(this.state))
+
+        }
+        // ALTERAR: Entidade existente
+        else {
+            console.log("Alterar")
+            console.log("state="+JSON.stringify(this.state))
+            let obj = this.state.items
+            obj.nome=this.refs.nome.value
+            obj.email=this.refs.email.value
+            let jobj = JSON.stringify(obj)
+            //let id = this.props.match.params.id
+            let id = this.obj.id
+            fetch('http://msansone.com.br:8080/usuarios/' + id, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: jobj
+            })
+        }
+    }
+
+    salvar_bkp() {
         console.log('salvar()')
         console.log(this.state.items.id)
         // INSERIR: Entidade nova
@@ -67,8 +127,12 @@ class UsuarioItem extends React.Component {
                         'Content-Type': 'application/json',
                 },
                 body: jobj
-            }).then ( function (data){
-                        console.log(JSON.stringify(data))
+              }).then((json) => {
+                console.log("ret="+JSON.stringify(json))
+                this.setState({ items: json })
+            })
+            .catch(function () {
+                console.log("Deu ruim.")
             })
         }
         // ALTERAR: Entidade existente
@@ -78,7 +142,8 @@ class UsuarioItem extends React.Component {
             obj.nome=this.refs.nome.value
             obj.email=this.refs.email.value
             let jobj = JSON.stringify(obj)
-            let id = this.props.match.params.id
+            //let id = this.props.match.params.id
+            let id = this.obj.id
             fetch('http://msansone.com.br:8080/usuarios/' + id, {
                 method: 'PUT',
                 headers: {
@@ -88,24 +153,6 @@ class UsuarioItem extends React.Component {
                 body: jobj
             })
         }
-    }
-
-    salvar_bkp() {
-        console.log('salvar()')
-        console.log(this.state.items.id)
-        let obj = this.state.items
-        obj.nome=this.refs.nome.value
-        obj.email=this.refs.email.value
-        let jobj = JSON.stringify(obj)
-        var id = this.props.match.params.id
-        fetch('http://msansone.com.br:8080/usuarios/' + id, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: jobj
-        })
     }
 
 

@@ -6,6 +6,7 @@ import Usuarios from './Usuarios'
 
 class UsuarioBase extends Component{
     render(){
+        console.log("usuarioBase state="+JSON.stringify(this.state))
         return (
             <div className='row'>
                 <div className= 'col-md-2'>
